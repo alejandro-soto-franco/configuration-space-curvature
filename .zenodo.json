@@ -1,0 +1,17 @@
+{
+    "title": "Configuration-Space Curvature and the Navier-Stokes Singular Set",
+    "description": "LaTeX sources of the paper together with its verification deliverable: symbolic and spectral checks of the configuration-space curvature and strain-enstrophy imbalance identities, and an equation-coverage gate that binds every displayed algebraic identity to a counter-tested symbolic check. The paper is licensed CC BY 4.0; the verification code under verify/ is licensed MIT.",
+    "upload_type": "software",
+    "license": "cc-by-4.0",
+    "creators": [
+        { "name": "Soto Franco, Alejandro José" }
+    ],
+    "keywords": [
+        "Navier-Stokes regularity",
+        "partial regularity",
+        "pressure Hessian",
+        "sectional curvature",
+        "volume-preserving diffeomorphisms",
+        "strain-enstrophy imbalance"
+    ]
+}
