@@ -5,6 +5,8 @@ of the configuration group of an ideal fluid.
 
 **Author:** Alejandro José Soto Franco · **Paper:** [`paper/main.pdf`](paper/main.pdf)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20600978.svg)](https://doi.org/10.5281/zenodo.20600978)
+
 ## Summary
 
 At a singular point of a suitable weak solution of the three-dimensional
@@ -76,14 +78,18 @@ divergence-free families, so agreement is not an artefact of a single symmetry.
 
 ## Citation
 
-A preprint reference will be added once the paper is posted. In the meantime:
+This repository is archived on Zenodo at
+[`10.5281/zenodo.20600978`](https://doi.org/10.5281/zenodo.20600978) (the concept DOI
+always resolves to the latest version). A preprint reference will be added once the
+paper is posted.
 
 ```bibtex
-@misc{sotofranco2026curvature,
+@software{sotofranco2026curvature,
   author = {Soto Franco, Alejandro Jos\'e},
   title  = {Configuration-Space Curvature and the Navier--Stokes Singular Set},
   year   = {2026},
-  note   = {Preprint},
+  doi    = {10.5281/zenodo.20600978},
+  url    = {https://doi.org/10.5281/zenodo.20600978},
 }
 ```
 
