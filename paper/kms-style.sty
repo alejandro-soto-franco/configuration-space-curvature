@@ -1,0 +1,106 @@
+%% kms-style.sty -- house style for this paper.
+%% Usage:
+%%   \documentclass[12pt]{article}   % letterpaper (class default) is intended
+%%   \usepackage{kms-style}          % add [short] for thm/prop/lem dialect
+%%   \usepackage{kms-notation}
+%% Builds under pdfLaTeX or XeLaTeX (uses amssymb, not unicode-math).
+%% Wide text block on US letter; do not pass a4paper to the class with this style.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{kms-style}[2026/06/01 v1.0 house style]
+
+\RequirePackage{etoolbox}
+
+% ---- options ------------------------------------------------------------
+% [short]  -> thm/prop/lem/cor/rem/claim dialect
+% [long]   -> theorem/proposition/lemma/...  dialect [default]
+% [nobib]  -> document loads its own bibliography machinery
+\newtoggle{kms@short}\togglefalse{kms@short}
+\newtoggle{kms@nobib}\togglefalse{kms@nobib}
+\DeclareOption{short}{\toggletrue{kms@short}}
+\DeclareOption{long}{\togglefalse{kms@short}}
+\DeclareOption{nobib}{\toggletrue{kms@nobib}}
+\ProcessOptions\relax
+
+% ---- packages ----------------------------------------------------------
+\RequirePackage{amssymb}
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+\RequirePackage{mathtools}
+\RequirePackage{mathrsfs}
+\RequirePackage{enumitem}
+\RequirePackage{float}
+\RequirePackage{setspace}
+\RequirePackage{tikz}
+\tikzset{every picture/.style={line width=0.75pt}}
+\RequirePackage[labelfont=bf]{caption}
+\allowdisplaybreaks
+
+% ---- geometry: US letter + wide text block -----------------------------
+% These \addtolength values assume the letterpaper class default; do not pass
+% a4paper to the class with this style.
+\addtolength{\hoffset}{-2.25cm}
+\addtolength{\textwidth}{4.5cm}
+\addtolength{\voffset}{-2.5cm}
+\addtolength{\textheight}{5cm}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+\pagenumbering{arabic}
+
+% ---- theorem environments (independent counters) -----------------------
+% Each environment is numbered independently (no shared counter, no cleveref).
+% Cross-reference with plain "Theorem~\ref{thm: ...}".
+\iftoggle{kms@short}{%
+  \newtheorem{thm}{Theorem}%
+  \newtheorem{prop}{Proposition}%
+  \newtheorem{lem}{Lemma}%
+  \newtheorem{cor}{Corollary}%
+  \newtheorem{claim}{Claim}%
+  \theoremstyle{definition}%
+  \newtheorem{definition}{Definition}%
+  \theoremstyle{remark}%
+  \newtheorem{rem}{Remark}%
+}{%
+  \newtheorem{theorem}{Theorem}%
+  \newtheorem{proposition}{Proposition}%
+  \newtheorem{lemma}{Lemma}%
+  \newtheorem{corollary}{Corollary}%
+  \theoremstyle{definition}%
+  \newtheorem{definition}{Definition}%
+  \theoremstyle{remark}%
+  \newtheorem{remark}{Remark}%
+}
+
+% ---- links (hyperref configuration) ------------------------------------
+\RequirePackage[colorlinks=true,allcolors=black]{hyperref}
+\RequirePackage{url}
+
+% ---- bibliography: biblatex + biber, alphabetic labels -----------------
+% Alphabetic labels (the [LW25] look) on the biber backend.
+\iftoggle{kms@nobib}{}{%
+  \RequirePackage[backend=biber,style=alphabetic,sorting=nyt,%
+                  maxbibnames=99,giveninits=true]{biblatex}%
+}
+
+% ---- title block + addresses -------------------------------------------
+% Title in bold caps, authors in small caps joined by \&, date pulled up.
+% Wrap the document title text in \kmstitlecaps for the all-caps convention.
+% Rendered one step below the article \LARGE title default (\Large) by request.
+\providecommand{\kmstitlecaps}[1]{{\Large\textbf{\MakeUppercase{#1}}}}
+
+% \Addresses scaffold: fill in one block per author.
+%   \Addresses{%
+%     \kmsaddress{A}{Department of Mathematics, University, City, Country}{name@university.edu}
+%     \kmsaddress{...}{...}{...}
+%   }
+\newcommand{\kmsaddress}[3]{%
+  #1:\ \textsc{#2}\par\nopagebreak
+  \textit{Email address:} \texttt{#3}\par
+  \medskip
+}
+\newcommand{\Addresses}[1]{{%
+  \bigskip
+  \footnotesize
+  #1%
+}}
+
+\endinput

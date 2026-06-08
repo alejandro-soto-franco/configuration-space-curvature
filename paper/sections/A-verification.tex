@@ -1,0 +1,48 @@
+% sections/A-verification.tex
+\section{Symbolic and spectral verification}
+\label{app: verification}
+
+The identities of Sections~\ref{sec: connection-curvature}--\ref{sec: dichotomy}
+are reproduced by an independent computation, available in the project repository
+recorded in the data and code availability statement. The check runs on
+divergence-free test fields from distinct families, an Arnold--Beltrami flow and
+a perturbation of it, a pair of anti-parallel vortex tubes, and a helical blob,
+so that the agreement is not an artefact of a single symmetry. It establishes the
+following.
+\begin{enumerate}
+  \item The advective commutator~\eqref{eq: commutator}, and with it the vanishing
+        of the flat ambient part~\eqref{eq: local-zero}, holds symbolically for
+        arbitrary smooth fields.
+  \item The reduced identity~\eqref{eq: reduced} reproduces the
+        curvature~\eqref{eq: curvature-formula} to relative error
+        $6\times 10^{-14}$ on the band-limited fields, the residual tracking the
+        spectral truncation floor.
+  \item The trace identity $\operatorname{tr}\nabla^2 p = -q$ and the gradient
+        split~\eqref{eq: gradient-split} hold pointwise to order $10^{-15}$.
+  \item The Gauss equation~\eqref{eq: gauss} holds to order $10^{-16}$.
+  \item The identity $\norm{\nabla^2 p}_{L^2} = \norm{q}_{L^2}$ holds to ten
+        significant figures, and the pointwise bound
+        $\abs{q} \le \sqrt{3}\,\abs{\nabla^2 p}$ is confirmed.
+  \item The coercivity bound $\abs{q} \le \abs{\nabla u}^2$
+        of~\eqref{eq: gradient-split} holds pointwise, and the no-net-work identity
+        $\int_{\T^3} S\!:\!\nabla^2 p = 0$ of~\eqref{eq: zero-mean} holds to order
+        $10^{-9}$.
+  \item The production law~\eqref{eq: production} is reproduced by two independent
+        computations of the material derivative, by the definition through the
+        Navier--Stokes right-hand side and by the right side
+        of~\eqref{eq: production}, agreeing to relative error $10^{-13}$ on the
+        band-limited fields; the three zero-mean identities~\eqref{eq: zero-mean},
+        for the determinant, the curvature work, and
+        $\operatorname{tr}(\nabla u\,\Delta\nabla u)$, hold to machine precision.
+  \item The energy supersolution identity~\eqref{eq: supersolution},
+        $(\partial_t + U\cdot\nabla - \nu\Delta)\tfrac12\abs{U}^2
+        = -\nu\abs{\nabla U}^2$, holds to order $10^{-6}$ on the sharp-profile
+        fields and to machine precision on the band-limited ones. The product-rule
+        identity $\Delta q = 2\operatorname{tr}(\nabla u\,\Delta\nabla u)
+        + 2(\partial_k\partial_i u_j)(\partial_k\partial_j u_i)$ behind the
+        reformulation~\eqref{eq: constraint-hessian} holds to machine precision, and
+        the contraction $(\partial_k\partial_i u_j)(\partial_k\partial_j u_i)$ takes
+        both signs, so the constraint carries no one-sided bound on the determinant.
+\end{enumerate}
+The spectral checks use a Fourier pseudo-spectral discretisation on a
+$48^3$ grid; the symbolic check in~(i) is exact.

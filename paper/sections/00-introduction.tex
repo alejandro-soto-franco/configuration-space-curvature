@@ -1,0 +1,167 @@
+% sections/00-introduction.tex
+\section{Introduction}
+\label{sec: introduction}
+
+\subsection{The geometry of the configuration group}
+
+The configuration space of an ideal incompressible fluid on a closed Riemannian
+manifold $M$ is the group $\SDiff(M)$ of volume-preserving diffeomorphisms,
+carrying the right-invariant $L^2$ metric. Arnold showed that the geodesics of
+this metric are the solutions of the Euler equations~\cite{arnold-1966-sur-la-geo},
+and Ebin and Marsden placed the resulting infinite-dimensional geometry on a
+rigorous analytic footing~\cite{ebin-1970-gro-dif-mot}. On the Lie algebra
+$\Lsig$ of smooth divergence-free vector fields the Levi-Civita connection of the
+$L^2$ metric is the projection of the flat ambient derivative,
+\begin{equation}\label{eq: connection}
+  \conn_u v = \Leray\bigl[(u\cdot\nabla)v\bigr],
+\end{equation}
+with $\Leray$ the Leray projection onto divergence-free fields. Arnold computed
+the sectional curvatures of~\eqref{eq: connection} and found them predominantly
+negative~\cite{arnold-1966-sur-la-geo, arnold-1998-top-met-hyd}. Negative
+sectional curvature forces the exponential divergence of nearby geodesics through
+the Jacobi equation, and so measures the Lagrangian instability of the flow; the
+equivalence of this geometric instability with the Eulerian instability of the
+velocity field was established by Rouchon, Misio\l{}ek and
+Preston~\cite{rouchon-1992-jac-cur, misiolek-1993-sta-flo-ide,
+preston-2004-ide-flu-ins}. The sign of these curvatures is carried by the
+pressure: for a pair of divergence-free fields the sectional value is, modulo
+terms that vanish on Fourier modes, the negative $L^2$ energy of an associated
+pressure gradient~\cite{arnold-1998-top-met-hyd}, so the incompressibility
+constraint is the source of the curvature.
+
+\subsection{The regularity problem}
+
+For the viscous problem on $\T^3$, Leray and Hopf constructed global weak
+solutions of finite energy~\cite{leray-1934-sur-le-mou, hopf-1951-ube-die-anf},
+and whether every smooth datum gives a globally smooth solution is the subject of
+the Clay millennium problem~\cite{fefferman-2006-exi-smo}. Smoothness follows
+from a range of scaling-critical conditions on the velocity, the
+Prodi--Serrin--Ladyzhenskaya class~\cite{prodi-1959-un-teo-di,
+serrin-1962-int-reg-wea, ladyzhenskaya-1967-uni-smo-gen}, with the endpoint
+$L^\infty_t L^3_x$ secured by Escauriaza, Seregin and
+\v{S}ver\'ak~\cite{escauriaza-2003-l3i-nav-equ}; the vorticity counterpart for
+the inviscid problem is the criterion of Beale, Kato and
+Majda~\cite{beale-1984-rem-bre-smo}. Where global smoothness is open, the
+partial-regularity theory of Scheffer and of Caffarelli, Kohn and Nirenberg
+bounds the singular set, which has parabolic Hausdorff dimension at most
+one~\cite{scheffer-1976-par-reg-sol, caffarelli-1982-par-reg-sui}, with later
+proofs given by Lin and by Vasseur~\cite{lin-1998-new-pro-caf,
+vasseur-2007-new-pro-par}.
+
+\subsection{Vortex stretching and the pressure Hessian}
+
+The mechanism behind these results is vortex stretching, the growth of vorticity
+driven by the scalar $\alpha = \xi^{\top} S\,\xi$, with $\xi$ the vorticity
+direction and $S$ the strain. Constantin and Fefferman showed that a solution
+whose vorticity direction stays coherent on the set of high vorticity remains
+smooth~\cite{constantin-1993-dir-vor-pro}, a geometric depletion of the
+nonlinearity developed further in the geometric statistics of turbulence and the
+constraints on singular Euler flows~\cite{constantin-1994-geo-sta-tur,
+constantin-1996-geo-con-pot} and in the regularising effect of the vorticity
+direction for the viscous problem~\cite{beiraodaveiga-2002-reg-eff-vor}. The
+strain that drives $\alpha$ evolves through the pressure Hessian $\nabla^2 p$, a
+nonlocal transform of the velocity gradient whose intractability is the central
+difficulty of the local models of the velocity-gradient tensor introduced by
+Vieillefosse and Cantwell, and of the analysis of vortex stretching by Ohkitani
+and Kishiba~\cite{vieillefosse-1982-loc-int, cantwell-1992-exa-sol,
+ohkitani-1995-non-nat}. The geometry of the configuration group and the analysis
+of vortex stretching have thus developed alongside one another, the first through
+the curvature of~\eqref{eq: connection}, the second through the pressure Hessian.
+The purpose of this paper is to show that these are one object.
+
+\subsection{Results}
+
+Throughout, $u$ is smooth and divergence-free on the flat torus $\T^3$, with
+strain $S_{ij} = \tfrac12(\partial_i u_j + \partial_j u_i)$, vorticity
+$\omega = \curl u$, vorticity direction $\xi = \omega/\abs{\omega}$ on
+$\{\omega \neq 0\}$, and pressure $p$ determined by
+\begin{equation}\label{eq: pressure-poisson}
+  -\Delta p = \partial_i u_j\,\partial_j u_i = \abs{S}^2 - \tfrac12\abs{\omega}^2
+            =: q.
+\end{equation}
+We write $\nabla^2 f$ for the Hessian of a function $f$, and $\Riesz$ for the
+matrix Riesz transform with symbol $\eta_i\eta_j/\abs{\eta}^2$, so that
+$\nabla^2 p = -\Riesz q$.
+
+The contribution is a reading of the Navier--Stokes singular set through the
+curvature of the configuration group. At a singular point of a suitable weak
+solution the partial-regularity theory leaves a dichotomy
+(Theorem~\ref{thm: dichotomy}): the curvature concentrates, or the flow comes into
+strain--enstrophy balance. Away from balance the curvature controls regularity
+coercively (Proposition~\ref{prop: coercive}), and in the scale-critical class the
+balanced alternative is excluded, so every scale-critical singular point, the
+Type-I points among them, is curvature-concentrating (Section~\ref{sec: blowup}).
+Beyond that class the balanced regime is supercritical, where the energy identity is
+blind and the curvature is the structure a regularity proof must read
+(Section~\ref{sec: barrier}). This reading rests on a geometric identity, that the
+curvature of $\SDiff(\T^3)$ is the pressure Hessian, which we establish first.
+
+That the sectional curvature of $\SDiff(\T^3)$ is carried by the pressure is due to
+Arnold~\cite{arnold-1966-sur-la-geo, arnold-1998-top-met-hyd}, with the analytic
+foundation of Ebin and Marsden~\cite{ebin-1970-gro-dif-mot} and the curvature
+computations of Rouchon, Misio\l{}ek and Preston~\cite{rouchon-1992-jac-cur,
+misiolek-1993-sta-flo-ide, preston-2004-ide-flu-ins}. The identity established
+here is at the level of the curvature operator: $\curv(u,\cdot)u$ is the
+Leray-projected pressure Hessian $-\Leray[(\nabla^2 p)\,\cdot]$, the same operator
+$\nabla^2 p = -\Riesz q$ that drives the velocity-gradient dynamics of
+Vieillefosse, Cantwell, Ohkitani and Meneveau~\cite{vieillefosse-1982-loc-int,
+cantwell-1992-exa-sol, ohkitani-1995-non-nat, meneveau-2011-lag-dyn-mod}. This
+identifies the configuration-space curvature with the pressure Hessian of that
+dynamics, measures it by the strain--enstrophy imbalance, and turns it on the
+singular set through a transport law and a blow-up limit. The three theorems
+follow, one to a section, and the dichotomy is read through the dynamics.
+
+Theorem~\ref{thm: main} (Section~\ref{sec: connection-curvature}) identifies the
+curvature with the pressure Hessian. The second fundamental form of
+$\SDiff(\T^3)$ in the flat group $\Diffop(\T^3)$ is the pressure gradient, the
+flat ambient part of the curvature vanishes, and
+$\curv(u,v)u = -\Leray[(\nabla^2 p)\,v] - \Leray[(\nabla^2 q_v)\,u]$, with $q_v$
+the mixed pressure $\Delta q_v = \partial_i v_j\,\partial_j u_i$; the Gauss
+equation reproduces Arnold's sectional curvature formula. This is the Gauss
+equation for the constraint of incompressibility: the ambient group has no
+curvature, and the whole curvature of $\SDiff(\T^3)$ is carried by the second
+fundamental form, which is the pressure.
+
+Theorem~\ref{thm: imbalance} (Section~\ref{sec: imbalance}) measures it. The
+pointwise trace of the curvature is the strain--enstrophy imbalance,
+$\operatorname{tr}\nabla^2 p = \Delta p = -q$, and its $L^2$ size is that
+imbalance, $\norm{\nabla^2 p}_{L^2(\T^3)} = \norm{q}_{L^2(\T^3)}$. The curvature
+is large where strain and enstrophy are out of balance and vanishes on the
+pressureless flows $\{q \equiv 0\}$, the single-field form of the same-shell
+degeneracy that Arnold found for Fourier-mode pairs.
+
+Theorem~\ref{thm: dichotomy} (Section~\ref{sec: dichotomy}) reads this against
+regularity. Because $\abs{\nabla u}^2 = q + \abs{\omega}^2$ pointwise, at a
+singular point of a suitable weak solution either the curvature concentrates,
+$\limsup_{r\to0} r^{-1}\!\int_{Q_r}\abs{q} > 0$, or the scaled strain energy and
+half-enstrophy converge to a common value: the flow comes into strain--enstrophy
+balance, equivalently it becomes locally pressureless. Away from balance the
+converse holds: the curvature controls the local energy coercively
+(Proposition~\ref{prop: coercive}), so the two directions place the singular set
+where the curvature concentrates or the pressure depletes. The
+Constantin--Fefferman criterion controls the stretching scalar
+$\alpha = \xi^{\top} S\,\xi$ under a coherence hypothesis on $\xi$ and reaches the
+regime of coherent vorticity; the curvature, through its imbalance, governs the
+complementary regime.
+
+Two further results read the balanced alternative dynamically.
+Section~\ref{sec: dichotomy} gives the imbalance a transport law,
+$(\partial_t + u\cdot\nabla)q = -6\det(\nabla u) - 2\,S\!:\!\nabla^2 p
++ 2\nu\operatorname{tr}(\nabla u\,\Delta\nabla u)$, in which each term carries no
+net source, so balance demands their pointwise cancellation against a zero-sum
+budget. Section~\ref{sec: blowup} makes this rigid: a balanced singular point would
+produce a bounded ancient solution with no pressure, $q\equiv0$ and
+$\nabla p\equiv0$. Under a Type-I bound the limit inherits the self-similar decay
+$\abs{U}\le M\abs{t}^{-1/2}$ and an elementary maximum principle forces it to
+vanish; under the larger scale-critical $L^3$ bound the divergence-free drift lies
+in the critical class and the Liouville theorem of Seregin, Silvestre, \v{S}ver\'ak
+and Zlato\v{s}~\cite{seregin-2012-div-dri} forces the same. Every scale-critical
+singular point is therefore curvature-concentrating. Beyond the critical class the
+balanced regime is supercritical, and the averaged-equation barrier of
+Tao~\cite{tao-2016-fin-tim-blo} shows it is closed to the energy identity and the
+scaling alone; the curvature is the structure of the Euler nonlinearity that
+resolves it, and the reduced pressureless Liouville is the gateway it leaves open.
+
+Section~\ref{sec: proof} proves Theorem~\ref{thm: main}; the remaining sections
+are self-contained. The identities are confirmed by an independent symbolic and
+spectral computation, described in Appendix~\ref{app: verification}.

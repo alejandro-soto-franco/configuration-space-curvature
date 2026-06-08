@@ -1,0 +1,37 @@
+% sections/02-proof.tex
+\section{Proof of Theorem~\ref{thm: main}}
+\label{sec: proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm: main}]
+On scalar functions the flat directional derivatives satisfy
+\begin{equation}\label{eq: commutator}
+  (u\cdot\nabla)(v\cdot\nabla) - (v\cdot\nabla)(u\cdot\nabla)
+  = ([u,v]\cdot\nabla),
+\end{equation}
+so applying~\eqref{eq: commutator} to each component of $u$ gives the vanishing of
+the flat ambient part~\eqref{eq: local-zero}.
+
+Expanding each inner Leray projection in~\eqref{eq: curvature-formula} through
+$\Leray = I - \Helm$, the three terms that carry no inner $\Helm$ assemble into
+\[
+  \Leray\bigl[(u\cdot\nabla)(v\cdot\nabla)u - (v\cdot\nabla)(u\cdot\nabla)u
+              - ([u,v]\cdot\nabla)u\bigr],
+\]
+which vanishes by~\eqref{eq: local-zero}, and there remains
+\begin{equation}\label{eq: two-terms}
+  \curv(u,v)u = -\Leray\bigl[(u\cdot\nabla)\,\Helm[(v\cdot\nabla)u]\bigr]
+              + \Leray\bigl[(v\cdot\nabla)\,\Helm[(u\cdot\nabla)u]\bigr].
+\end{equation}
+Incompressibility gives $\diverg[(u\cdot\nabla)u] = \partial_i u_j\,\partial_j u_i
+= q = -\Delta p$ by~\eqref{eq: pressure-poisson}, so
+$\Helm[(u\cdot\nabla)u] = \nabla\Delta^{-1}\diverg[(u\cdot\nabla)u] = -\nabla p$ and
+\[
+  (v\cdot\nabla)\,\Helm[(u\cdot\nabla)u] = -(v\cdot\nabla)\nabla p
+  = -(\nabla^2 p)\,v.
+\]
+In the same way $\diverg[(v\cdot\nabla)u] = \partial_i v_j\,\partial_j u_i
+= \Delta q_v$, a divergence and so of zero mean, which defines $q_v$; hence
+$\Helm[(v\cdot\nabla)u] = \nabla q_v$ and
+$(u\cdot\nabla)\,\Helm[(v\cdot\nabla)u] = (\nabla^2 q_v)\,u$. Substituting
+into~\eqref{eq: two-terms} gives~\eqref{eq: reduced}.
+\end{proof}

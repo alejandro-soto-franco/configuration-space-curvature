@@ -1,0 +1,108 @@
+\documentclass[12pt]{article}
+\usepackage{kms-style}
+\usepackage{kms-notation}
+
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+\setlength{\emergencystretch}{3em}
+
+% Visible vertical space between paragraphs, indentation kept.
+\setlength{\parskip}{0.5\baselineskip plus 2pt minus 1pt}
+
+
+% Paper-local notation.
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\T}{\mathbb{T}}
+\providecommand{\abs}[1]{\lvert #1 \rvert}
+\providecommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\conn}{\nabla}                  % Levi-Civita connection of the L^2 metric
+\newcommand{\curv}{R}                        % curvature tensor
+\newcommand{\Leray}{\mathbb{P}}              % Leray projection
+\newcommand{\Helm}{\mathbb{Q}}               % complementary (gradient) projection
+\newcommand{\Riesz}{\mathcal{R}}             % matrix Riesz transform
+\newcommand{\curl}{\operatorname{curl}}
+\newcommand{\Lsig}{\mathfrak{X}_\sigma}      % divergence-free fields
+\newcommand{\Maxl}{\mathcal{M}}              % Hardy--Littlewood maximal function
+\providecommand{\eps}{\varepsilon}
+% \sff (second fundamental form) is provided by kms-notation.
+\DeclareMathOperator{\SDiff}{SDiff}
+\DeclareMathOperator{\Diffop}{Diff}
+
+\addbibresource{refs.bib}
+
+\begin{document}
+
+\title{\Large\kmstitlecaps{Configuration-Space Curvature and the
+Navier--Stokes Singular Set}}
+\author{\textsc{Alejandro Jos\'e Soto Franco}}
+\date{\vspace{-5ex}}
+\maketitle
+
+\begin{abstract}
+    \noindent At a singular point of a suitable weak solution of the
+    three-dimensional Navier--Stokes equations, the partial-regularity theory of
+    Caffarelli, Kohn and Nirenberg leaves two possibilities: either a
+    configuration-space curvature concentrates, or the strain energy and the
+    enstrophy come into balance. We control the first possibility coercively and
+    constrain the second. The tool is a geometric identity. The curvature of the
+    $L^2$ metric on the group $\SDiff(\T^3)$ of volume-preserving diffeomorphisms
+    is the pressure Hessian, the Gauss curvature of $\SDiff(\T^3)$ inside the flat
+    group $\Diffop(\T^3)$ whose second fundamental form is the pressure gradient;
+    its $L^2$ size is the strain--enstrophy imbalance
+    $\norm{\,\abs{S}^2 - \tfrac12\abs{\omega}^2}$, so the configuration-space
+    curvature is the pressure Hessian of the velocity-gradient dynamics. The
+    imbalance carries a transport law in which the inertial production, the
+    curvature work, and viscosity each redistribute it with zero net budget. Under
+    a scale-critical $L^3$ bound, the local form of the
+    Escauriaza--Seregin--\v{S}ver\'ak condition, the balanced possibility forces a
+    bounded ancient pressureless flow that a Liouville theorem for divergence-free
+    drifts excludes, so every such singular point, the Type-I points among them, is
+    curvature-concentrating. Beyond the critical class the imbalance is the
+    structure of the nonlinearity the energy identity does not see, the
+    structure an energy-preserving averaged equation discards, so the curvature is
+    where regularity is to be decided.
+\end{abstract}
+
+\medskip
+{\small
+\noindent\textit{Mathematics Subject Classification (2020).}\ \,35Q30, 76D03,
+58D05; 35B65, 58B20, 76F02.\par\smallskip
+\noindent\textit{Keywords.}\ \,Navier--Stokes regularity; volume-preserving
+diffeomorphisms; pressure Hessian; sectional curvature; strain--enstrophy
+imbalance; partial regularity.\par}
+
+{\setlength{\parskip}{0pt}\tableofcontents}
+
+\input{sections/00-introduction}
+\input{sections/01-connection-and-curvature}
+\input{sections/02-proof}
+\input{sections/03-imbalance}
+\input{sections/04-dichotomy}
+\input{sections/06-blowup-limit}
+\input{sections/05-discussion}
+
+\appendix
+\input{sections/A-verification}
+
+\section*{Declarations}
+
+\noindent\textbf{Competing interests.}\ \,The author declares that he has no
+competing interests.
+
+\smallskip
+\noindent\textbf{Funding.}\ \,The author received no funding for this work.
+
+\smallskip
+\noindent\textbf{Data and code availability.}\ \,This work has no associated
+datasets. The symbolic and spectral verification described in
+Appendix~\ref{app: verification} is reproduced by the openly available scripts
+under \texttt{verify/} in the project repository at
+\texttt{github.com/\allowbreak alejandro-soto-franco/\allowbreak configuration-space-curvature}.
+
+\printbibliography
+
+\Addresses{%
+  \kmsaddress{ASF}{Kuwait City, Capital Governorate, State of Kuwait}{asoto12@alumni.jh.edu}
+}
+
+\end{document}

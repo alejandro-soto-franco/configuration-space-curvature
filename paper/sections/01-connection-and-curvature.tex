@@ -1,0 +1,111 @@
+% sections/01-connection-and-curvature.tex
+\section{The connection, the second fundamental form, and the Gauss equation}
+\label{sec: connection-curvature}
+
+This section and the next supply the apparatus, the curvature of the
+configuration group and its size, which Sections~\ref{sec: dichotomy}
+and~\ref{sec: blowup} turn on the singular set.
+
+Let $\Lsig$ be the space of smooth divergence-free vector fields on $\T^3$ with
+the $L^2$ inner product $g(v,w) = \int_{\T^3} v\cdot w\,\dd x$. The Leray
+projection $\Leray$ is the orthogonal projection of $L^2$ onto $\Lsig$, and
+$\Helm = I - \Leray = \nabla\Delta^{-1}\diverg$ is the complementary projection
+onto gradients. The group $\Diffop(\T^3)$ of all diffeomorphisms carries a flat
+$L^2$ metric, whose geodesics are the pressureless straight-line motions; its
+volume-preserving subgroup $\SDiff(\T^3)$ is a submanifold whose induced
+Levi-Civita connection on $\Lsig$ is the projection of the flat
+connection~\cite{ebin-1970-gro-dif-mot, misiolek-1993-sta-flo-ide,
+arnold-1998-top-met-hyd},
+\begin{equation}\label{eq: connection-2}
+  \conn_u v = \Leray\bigl[(u\cdot\nabla)v\bigr], \qquad u, v \in \Lsig.
+\end{equation}
+This is the metric connection in the convention of Misio\l{}ek and of Ebin and
+Marsden; the Gauss equation of Proposition~\ref{prop: gauss} confirms that the
+sectional curvature it produces is Arnold's.
+
+\subsection{The second fundamental form}
+
+The normal part of the flat derivative is the second fundamental form of the
+constraint.
+
+\begin{lemma}\label{lem: second-fundamental}
+The second fundamental form of $\SDiff(\T^3)$ in $\Diffop(\T^3)$ is
+\begin{equation}\label{eq: II}
+  \sff(a,b) = \Helm\bigl[(a\cdot\nabla)b\bigr] = \nabla\phi_{ab},
+  \qquad \Delta\phi_{ab} = \partial_i a_j\,\partial_j b_i,
+\end{equation}
+for $a, b \in \Lsig$. It is symmetric, and on the diagonal it is the pressure
+gradient, $\sff(u,u) = -\nabla p$.
+\end{lemma}
+
+\begin{proof}
+The flat derivative of $b$ along $a$ is $(a\cdot\nabla)b$; its normal
+(gradient) part is $\Helm[(a\cdot\nabla)b] = \nabla\Delta^{-1}\diverg[(a\cdot\nabla)b]$,
+and $\diverg[(a\cdot\nabla)b] = \partial_i a_j\,\partial_j b_i$ since $a$ is
+divergence-free. Symmetry follows because the Lie bracket
+$[a,b] = (a\cdot\nabla)b - (b\cdot\nabla)a$ is divergence-free, so
+$\Helm[(a\cdot\nabla)b] = \Helm[(b\cdot\nabla)a]$. For $a = b = u$ the source is
+$\partial_i u_j\,\partial_j u_i = q = -\Delta p$ by~\eqref{eq: pressure-poisson},
+hence $\phi_{uu} = -p$ and $\sff(u,u) = -\nabla p$.
+\end{proof}
+
+\subsection{Curvature and the Gauss equation}
+
+The curvature of~\eqref{eq: connection-2},
+\[
+  \curv(u,v)w = \conn_u\conn_v w - \conn_v\conn_u w - \conn_{[u,v]} w,
+\]
+expands, for $u, v, w \in \Lsig$, as
+\begin{equation}\label{eq: curvature-formula}
+  \curv(u,v)w
+  = \Leray\!\bigl[(u\cdot\nabla)\Leray[(v\cdot\nabla)w]\bigr]
+  - \Leray\!\bigl[(v\cdot\nabla)\Leray[(u\cdot\nabla)w]\bigr]
+  - \Leray\!\bigl[([u,v]\cdot\nabla)w\bigr].
+\end{equation}
+Since the ambient group is flat, the curvature is governed entirely by the second
+fundamental form through the Gauss equation. This is the content of the main
+identity.
+
+\begin{theorem}\label{thm: main}
+Let $u$ be smooth and divergence-free
+on $\T^3$. The flat ambient part of the curvature vanishes identically,
+\begin{equation}\label{eq: local-zero}
+  (u\cdot\nabla)(v\cdot\nabla)u - (v\cdot\nabla)(u\cdot\nabla)u
+  - ([u,v]\cdot\nabla)u = 0,
+\end{equation}
+and for every divergence-free $v$ the curvature operator is the Leray-projected
+pressure Hessian,
+\begin{equation}\label{eq: reduced}
+  \curv(u,v)u = -\Leray\bigl[(\nabla^2 p)\,v\bigr]
+              - \Leray\bigl[(\nabla^2 q_v)\,u\bigr],
+\end{equation}
+with $q_v$ the mixed pressure $\Delta q_v = \partial_i v_j\,\partial_j u_i$.
+\end{theorem}
+
+Equation~\eqref{eq: reduced} names the curvature as the pressure Hessian
+$\nabla^2 p = -\Riesz q$ acting on $v$, together with a mixed-pressure term
+quadratic in the velocity gradient. The sectional form of the same identity is
+Arnold's, recovered here from the second fundamental form.
+
+\begin{proposition}\label{prop: gauss}
+For $u, v \in \Lsig$ the sectional
+curvature satisfies the Gauss equation
+\begin{equation}\label{eq: gauss}
+  g\bigl(\curv(u,v)v, u\bigr)
+  = \bigl\langle \sff(u,u), \sff(v,v) \bigr\rangle_{L^2}
+  - \norm{\sff(u,v)}_{L^2}^2,
+\end{equation}
+which is Arnold's sectional curvature formula with the pressure term
+$-\norm{\sff(u,v)}_{L^2}^2$ and remainder
+$B(u,v) = \langle \sff(u,u), \sff(v,v)\rangle_{L^2}$.
+\end{proposition}
+
+\begin{proof}
+The ambient group $\Diffop(\T^3)$ is flat, so the Gauss equation for the
+submanifold $\SDiff(\T^3)$ reads
+$g(\curv(u,v)v,u) = \langle\sff(u,u),\sff(v,v)\rangle - \langle\sff(u,v),\sff(v,u)\rangle$,
+and $\sff$ is symmetric by Lemma~\ref{lem: second-fundamental}. With
+$\sff(u,u) = -\nabla p$ this is Arnold's formula; the pressure energy
+$-\norm{\sff(u,v)}^2$ is its leading term and $B = \langle\sff(u,u),\sff(v,v)\rangle$
+the remainder that vanishes on the Fourier-mode pairs of~\cite{arnold-1998-top-met-hyd}.
+\end{proof}

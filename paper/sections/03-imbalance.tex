@@ -1,0 +1,57 @@
+% sections/03-imbalance.tex
+\section{The curvature is the strain--enstrophy imbalance}
+\label{sec: imbalance}
+
+Theorem~\ref{thm: main} expresses the curvature through the pressure Hessian
+$\nabla^2 p = -\Riesz q$. We now measure it. The relevant scalar is the
+strain--enstrophy imbalance $q = \abs{S}^2 - \tfrac12\abs{\omega}^2$
+of~\eqref{eq: pressure-poisson}.
+
+\begin{theorem}\label{thm: imbalance}
+Let $u$ be smooth and divergence-free on
+$\T^3$. The pressure Hessian and the imbalance $q$ are related by
+\begin{equation}\label{eq: imbalance}
+  \operatorname{tr}\nabla^2 p = \Delta p = -q,
+  \qquad
+  \norm{\nabla^2 p}_{L^2(\T^3)} = \norm{q}_{L^2(\T^3)},
+  \qquad
+  \abs{q} \le \sqrt{3}\,\abs{\nabla^2 p}\ \text{ pointwise},
+\end{equation}
+and $c_s\norm{q}_{L^s} \le \norm{\nabla^2 p}_{L^s} \le C_s\norm{q}_{L^s}$ for
+$1 < s < \infty$. Consequently the curvature vanishes precisely on the
+pressureless fields $\{q \equiv 0\}$, equivalently
+$\abs{S}^2 = \tfrac12\abs{\omega}^2$ pointwise.
+\end{theorem}
+
+\begin{proof}
+The trace of the pressure Hessian is $\operatorname{tr}\nabla^2 p = \Delta p =
+-q$ by~\eqref{eq: pressure-poisson}; this is a pointwise identity. Writing
+$\nabla^2 p = -\Riesz q$ with $\Riesz$ the matrix Riesz transform of symbol
+$\eta_i\eta_j/\abs{\eta}^2$, Plancherel gives
+\[
+  \norm{\nabla^2 p}_{L^2}^2
+  = \int \frac{\sum_{i,j}\eta_i^2\eta_j^2}{\abs{\eta}^4}\,\abs{\hat q(\eta)}^2\,\dd\eta
+  = \int \abs{\hat q(\eta)}^2\,\dd\eta
+  = \norm{q}_{L^2}^2,
+\]
+since $\sum_{i,j}\eta_i^2\eta_j^2 = \abs{\eta}^4$. The pointwise bound
+$\abs{q} = \abs{\operatorname{tr}\nabla^2 p} \le \sqrt{3}\,\abs{\nabla^2 p}$ is
+Cauchy--Schwarz. The matrix Riesz transform is bounded on $L^s$ for
+$1 < s < \infty$, which gives $\norm{\nabla^2 p}_{L^s} \le C_s\norm{q}_{L^s}$;
+the pointwise trace bound gives $\norm{q}_{L^s} \le \sqrt{3}\,\norm{\nabla^2 p}_{L^s}$.
+Finally $\nabla^2 p \equiv 0$ forces $\Riesz q \equiv 0$, hence
+$\hat q \equiv 0$ on the nonzero frequencies and $q \equiv 0$ since $q$ has zero
+mean; conversely $q \equiv 0$ gives $\nabla^2 p \equiv 0$. On the torus
+$q \equiv 0$ is $\Delta p \equiv 0$, that is $p$ constant.
+\end{proof}
+
+The curvature is large where strain and enstrophy are out of balance, and zero
+where the field is pressureless. The latter is the single-field counterpart of
+Arnold's same-shell degeneracy~\cite{arnold-1998-top-met-hyd}: the curvature of a
+two-plane of Fourier modes vanishes when the modes have equal frequency, because
+the pressure they generate vanishes, and here the curvature of a single
+field vanishes when its own pressure vanishes. The identification
+$\norm{\nabla^2 p}_{L^2} = \norm{q}_{L^2}$ is the rigorous content of the
+statement that the curvature density is the strain--enstrophy imbalance; the
+pointwise comparison fails because $\nabla^2 p$ is nonlocal, but its trace, the
+local part of the curvature, is $-q$.

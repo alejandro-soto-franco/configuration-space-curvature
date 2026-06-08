@@ -1,0 +1,428 @@
+% sections/06-blowup-limit.tex
+\section{The balanced blow-up limit}
+\label{sec: blowup}
+
+The dichotomy of Section~\ref{sec: dichotomy} leaves one regime the curvature does
+not detect, the balanced regime~\eqref{eq: balance} where
+$r^{-1}\int_{Q_r}\abs{q}\to 0$. We show this regime is rigid in the scale-critical
+class: a balanced singular point produces a bounded ancient solution of the
+Navier--Stokes equations with no pressure, the production law~\eqref{eq: production}
+governs that limit, and a Liouville theorem excludes it. The exclusion holds for
+every Type-I point by an elementary maximum principle, and for the strictly larger
+scale-critical $L^3$ class, the local form of the Escauriaza--Seregin--\v{S}ver\'ak
+condition, through the Liouville theorem for divergence-free drifts.
+
+Recall the parabolic rescaling at $z_0 = (x_0,t_0)$,
+\begin{equation}\label{eq: rescaling}
+  u^\lambda(x,t) = \lambda\,u(x_0+\lambda x,\ t_0+\lambda^2 t),
+  \qquad
+  p^\lambda(x,t) = \lambda^2\,p(x_0+\lambda x,\ t_0+\lambda^2 t),
+\end{equation}
+which preserves the equations and the scaled dissipation,
+$\int_{Q_1}\abs{\nabla u^\lambda}^2 = \lambda^{-1}\int_{Q_\lambda}\abs{\nabla u}^2$,
+and likewise $\int_{Q_1}\abs{q^\lambda} = \lambda^{-1}\int_{Q_\lambda}\abs{q}$. The
+solution obeys a Type-I bound at $z_0$ if $\abs{u(x,t)} \le M\,(t_0-t)^{-1/2}$ on a
+backward parabolic neighbourhood, so that $\abs{u^\lambda}\le M\abs{t}^{-1/2}$
+uniformly in $\lambda$.
+
+\begin{theorem}[balanced blow-up limit]\label{thm: blowup}
+Let $u$ be a suitable weak solution of
+the Navier--Stokes equations on $\T^3$ that obeys a Type-I bound at a singular
+point $z_0$ and is approached through balance,
+$\lim_{r\to0} r^{-1}\int_{Q_r}\abs{q} = 0$. Then a subsequence of the
+rescalings~\eqref{eq: rescaling} converges in $C^2_{\mathrm{loc}}$ to a bounded
+ancient solution $U$ of the Navier--Stokes equations on $\R^3\times(-\infty,0)$
+with
+\begin{equation}\label{eq: limit-pressureless}
+  q_U = \abs{S_U}^2 - \tfrac12\abs{\omega_U}^2 \equiv 0,
+  \qquad
+  \nabla p_U \equiv 0,
+\end{equation}
+so that $U$ solves $\partial_t U + (U\cdot\nabla)U = \nu\Delta U$ with
+$\operatorname{div}U = 0$. The limit inherits the Type-I decay
+$\abs{U(x,t)} \le M\abs{t}^{-1/2}$ on $\R^3\times(-\infty,0)$, and
+$\int_{Q_1}\abs{\nabla U}^2 \ge \eps_0$.
+\end{theorem}
+
+\begin{proof}
+The Type-I bound gives $\abs{u^\lambda} \le M\abs{t}^{-1/2}$ uniformly in
+$\lambda$, so $\{u^\lambda\}$ is bounded on every compact subset of
+$\R^3\times(-\infty,0)$. For a suitable weak solution this local boundedness
+propagates to uniform local bounds on the derivatives through the
+$\eps$-regularity theory and the Type-I blow-up procedure of Seregin and
+\v{S}ver\'ak~\cite{seregin-2009-typ-i-sin, necas-1996-ler-sel-sol,
+caffarelli-1982-par-reg-sui}, so a subsequence $u^{\lambda_k}$ converges in
+$C^2_{\mathrm{loc}}$ to a bounded ancient solution $U$ of the Navier--Stokes
+equations on $\R^3\times(-\infty,0)$ in the sense of~\cite{koch-2009-lio-the-nav}.
+Choose the subsequence to realise the singular lower bound
+$\limsup_{r\to0} r^{-1}\int_{Q_r}\abs{\nabla u}^2 \ge \eps_0$ of~\eqref{eq: ckn};
+the scaled dissipation is invariant and lower semicontinuous under the
+convergence, so $\int_{Q_1}\abs{\nabla U}^2 \ge \eps_0$ and $U$ is not constant.
+For the imbalance, the scaling
+$\int_{Q_R}\abs{q^\lambda} = R\,\Theta_q(R\lambda)$ with
+$\Theta_q(\rho) = \rho^{-1}\int_{Q_\rho}\abs{q}$, together with the balance
+hypothesis $\Theta_q(\rho)\to0$, gives
+$\int_{Q_R}\abs{q_U} = \lim_k \int_{Q_R}\abs{q^{\lambda_k}} = 0$ for every $R$, so
+$q_U\equiv0$ on $\R^3\times(-\infty,0)$. The bound
+$\abs{u^\lambda} = \lambda\abs{u} \le \lambda M(\lambda^2\abs{t})^{-1/2}
+= M\abs{t}^{-1/2}$ passes to the limit, giving the Type-I decay
+$\abs{U(x,t)} \le M\abs{t}^{-1/2}$. Finally $q_U\equiv0$ gives
+$\nabla^2 p_U = -\Riesz q_U \equiv 0$ by~\eqref{eq: imbalance}; the limit is a mild
+ancient solution in the sense of~\cite{koch-2009-lio-the-nav}, whose pressure is
+recovered from $U$ with no spatially harmonic part, so $\nabla p_U\equiv0$ and the
+momentum equation reduces to the stated advection--diffusion system.
+\end{proof}
+
+On the limit the production law sharpens to a pointwise constraint. Since
+$q_U\equiv0$ gives $(\partial_t + U\cdot\nabla)q_U = 0$, and the curvature term in
+\eqref{eq: production} carries the factor $\nabla^2 p_U\equiv0$, the identity
+becomes
+\begin{equation}\label{eq: limit-constraint}
+  3\det(\nabla U) = \nu\operatorname{tr}\!\bigl(\nabla U\,\Delta\nabla U\bigr)
+  \qquad\text{on } \R^3\times(-\infty,0).
+\end{equation}
+The pressureless limit thus carries two rigidities at once: the algebraic balance
+$\abs{S_U}^2 = \tfrac12\abs{\omega_U}^2$ and the differential
+constraint~\eqref{eq: limit-constraint}. Since $q_U\equiv0$ also gives
+$\Delta q_U = 0$, the product-rule identity
+$\Delta q = 2\operatorname{tr}(\nabla u\,\Delta\nabla u)
++ 2\,(\partial_k\partial_i u_j)(\partial_k\partial_j u_i)$ rewrites the
+constraint as
+\begin{equation}\label{eq: constraint-hessian}
+  3\det(\nabla U)
+  = -\nu\,(\partial_k\partial_i U_j)(\partial_k\partial_j U_i)
+  = -\nu\sum_{k}\operatorname{tr}\!\bigl((\partial_k\nabla U)^2\bigr).
+\end{equation}
+Each $\partial_k\nabla U$ is trace-free, so the right side has no definite sign and
+the determinant is sign-indefinite: the differential constraint alone leaves the
+limit unforced. Closure comes from the boundedness of the ancient flow together with
+a decay or critical bound on the drift, which we now establish.
+
+\begin{lemma}[Liouville for the pressureless Type-I limit]\label{lem: liouville}
+A smooth divergence-free solution $U$ of the pressureless system
+\begin{equation}\label{eq: drift-system}
+  \partial_t U_i + U\cdot\nabla U_i = \nu\Delta U_i, \qquad i = 1,2,3,
+\end{equation}
+on $\R^3\times(-\infty,0)$ that obeys the Type-I decay
+$\abs{U(x,t)} \le M\abs{t}^{-1/2}$ is identically zero.
+\end{lemma}
+
+\begin{proof}
+Each component $U_i$ solves the scalar equation~\eqref{eq: drift-system}, a
+uniformly parabolic equation whose drift $U$ is divergence-free. On every strip
+$\R^3\times[t_1,t_2]$ with $t_2 < 0$ the drift is bounded by $M\abs{t_2}^{-1/2}$
+and $U_i$ is bounded, so the maximum principle for bounded solutions applies:
+$t \mapsto \sup_{\R^3} U_i(\cdot,t)$ is non-increasing and
+$t \mapsto \inf_{\R^3} U_i(\cdot,t)$ is non-decreasing. The Type-I decay gives
+$\abs{U_i(\cdot,t)} \le M\abs{t}^{-1/2} \to 0$ as $t\to-\infty$, so both the
+supremum and the infimum tend to zero, and by monotonicity
+\[
+  \sup_{\R^3} U_i(\cdot,t) \le 0 \le \inf_{\R^3} U_i(\cdot,t)
+  \qquad\text{for every } t < 0,
+\]
+whence $U_i\equiv0$. Thus $U\equiv0$.
+\end{proof}
+
+The maximum principle uses the Type-I decay only through its vanishing as
+$t\to-\infty$. The same conclusion holds without pointwise decay whenever the limit
+lies in the scale-critical class $L^\infty_t L^3_x$, through the Liouville theorem
+for divergence-free drifts of Seregin, Silvestre, \v{S}ver\'ak and
+Zlato\v{s}~\cite{seregin-2012-div-dri}. This is the local form of the
+critical condition of Escauriaza, Seregin and
+\v{S}ver\'ak~\cite{escauriaza-2003-l3i-nav-equ}, and it contains the Type-I points
+while reaching strictly beyond them.
+
+\begin{lemma}[Liouville for the pressureless critical limit]\label{lem: liouville-critical}
+A bounded smooth divergence-free
+solution $U$ of the pressureless system~\eqref{eq: drift-system} on
+$\R^3\times(-\infty,0)$ that lies in the scale-critical class
+\begin{equation}\label{eq: critical-bound}
+  \sup_{t<0}\ \norm{U(\cdot,t)}_{L^3(\R^3)} < \infty
+\end{equation}
+is constant.
+\end{lemma}
+
+\begin{proof}
+Each component $U_i$ solves $\partial_t U_i + U\cdot\nabla U_i = \nu\Delta U_i$, a
+uniformly parabolic equation with the divergence-free drift $b = U$. Write
+$b = \operatorname{div}d$ for the skew-symmetric tensor potential $d$ of $U$. Then
+\[
+  \operatorname{div}(d\,\nabla U_i)
+  = (\partial_j d_{jk})\,\partial_k U_i + d_{jk}\,\partial_j\partial_k U_i
+  = U_k\,\partial_k U_i
+  = U\cdot\nabla U_i,
+\]
+since $\partial_j d_{jk} = b_k = U_k$ and the skew tensor annihilates the symmetric
+second derivative. Hence $U\cdot\nabla U_i = \operatorname{div}(d\,\nabla U_i)$ and
+$U_i$ solves the divergence-form equation
+$\partial_t U_i = \operatorname{div}\bigl((\nu\mathbb{I}-d)\,\nabla U_i\bigr)$ with
+leading coefficient $\nu\mathbb{I}-d$ of uniformly elliptic symmetric part and skew
+part $-d$. The potential $d$ is a matrix Riesz potential of $U$, and the endpoint
+estimate $I_1\colon L^3(\R^3)\to\mathrm{BMO}(\R^3)$ gives, from~\eqref{eq: critical-bound},
+\[
+  d \in L^\infty\bigl((-\infty,0);\mathrm{BMO}(\R^3;\R^{3\times3})\bigr).
+\]
+The Liouville theorem of Seregin, Silvestre, \v{S}ver\'ak and
+Zlato\v{s}~\cite{seregin-2012-div-dri} states that, for such a leading coefficient,
+the only bounded ancient suitable weak solutions are the constants, so each $U_i$
+is constant and $U$ is constant.
+\end{proof}
+
+\begin{theorem}[no balanced Type-I singularity]\label{thm: no-balanced}
+A suitable weak solution of the
+Navier--Stokes equations on $\T^3$ that obeys a Type-I bound has no balanced
+singular point. Every Type-I singular point is curvature-concentrating,
+\begin{equation}\label{eq: type1-concentration}
+  \limsup_{r\to0}\ \frac{1}{r}\int_{Q_r}\abs{q}\,\dd x\,\dd t > 0.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Suppose a Type-I singular point were approached through balance. By
+Theorem~\ref{thm: blowup} the rescalings converge to a pressureless limit $U$ that
+obeys the Type-I decay $\abs{U(x,t)} \le M\abs{t}^{-1/2}$ and satisfies
+$\int_{Q_1}\abs{\nabla U}^2 \ge \eps_0$. Lemma~\ref{lem: liouville} forces
+$U\equiv0$, so $\int_{Q_1}\abs{\nabla U}^2 = 0$, a contradiction. The balanced
+alternative of Theorem~\ref{thm: dichotomy} therefore cannot occur at a Type-I
+singular point, which leaves~\eqref{eq: type1-concentration}.
+\end{proof}
+
+The critical Liouville lemma extends the exclusion from the pointwise Type-I points
+to the scale-critical class, the local form of the condition of Escauriaza, Seregin
+and \v{S}ver\'ak.
+
+\begin{theorem}[no balanced scale-critical singularity]\label{thm: no-balanced-critical}
+Let $u$ be a suitable weak solution
+of the Navier--Stokes equations on $\T^3$ with a singular point $z_0$ at which the
+scale-critical bound
+\begin{equation}\label{eq: scale-critical}
+  \limsup_{r\to0}\ \sup_{t_0-r^2<t<t_0}\ \norm{u(\cdot,t)}_{L^3(B_r(x_0))}
+  < \infty
+\end{equation}
+holds. Then $z_0$ is curvature-concentrating,
+$\limsup_{r\to0} r^{-1}\int_{Q_r}\abs{q} > 0$. The class~\eqref{eq: scale-critical}
+contains the Type-I points and is the local form of the
+Escauriaza--Seregin--\v{S}ver\'ak critical condition.
+\end{theorem}
+
+\begin{proof}
+Suppose $z_0$ were approached through balance. Under~\eqref{eq: scale-critical} the
+rescalings~\eqref{eq: rescaling} satisfy
+$\norm{u^\lambda(\cdot,t)}_{L^3(B_R)}
+= \norm{u(\cdot,t_0+\lambda^2 t)}_{L^3(B_{\lambda R}(x_0))}$, bounded uniformly in
+$\lambda$ for every fixed $R$ as $\lambda\to0$, so $\{u^\lambda\}$ is bounded in
+$L^\infty_t L^3_x$ on every cylinder. The $\eps$-regularity theory in the critical
+class~\cite{escauriaza-2003-l3i-nav-equ, seregin-2009-typ-i-sin} upgrades this to
+uniform local bounds on $u^\lambda$ and its derivatives, so a subsequence converges
+in $C^2_{\mathrm{loc}}$ to a bounded smooth ancient solution $U$ on
+$\R^3\times(-\infty,0)$ with $\sup_{t<0}\norm{U(\cdot,t)}_{L^3(\R^3)}<\infty$ and
+$\int_{Q_1}\abs{\nabla U}^2 \ge \eps_0$. The balance hypothesis gives $q_U\equiv0$ as
+in Theorem~\ref{thm: blowup}, so $\nabla^2 p_U = -\Riesz q_U \equiv 0$; the limit is
+a mild ancient solution in the sense of~\cite{koch-2009-lio-the-nav}, whose pressure
+is recovered from $U$ with no spatially harmonic part, so $\nabla p_U\equiv0$ and the
+momentum equation reduces to the pressureless system~\eqref{eq: drift-system}. By
+Lemma~\ref{lem: liouville-critical} the limit is constant, contradicting
+$\int_{Q_1}\abs{\nabla U}^2 \ge \eps_0$.
+\end{proof}
+
+\subsection{Beyond the critical class}
+\label{sec: limit-structure}
+
+Lemmas~\ref{lem: liouville} and~\ref{lem: liouville-critical} close the balanced
+alternative for the scale-critical class, where the drift $U$ lies in
+$L^\infty_t L^3_x$ and so in $L^\infty_t\mathrm{BMO}^{-1}_x$. At a singular point
+outside that class the rescaling still produces a bounded ancient pressureless flow
+$U$ with $q_U\equiv0$, but the drift is now only bounded, with no spatial decay, and
+the divergence-free Liouville theorem no longer applies. We record the structure that
+bears on this supercritical Liouville problem: it carries the balance $q_U\equiv0$,
+the constraint~\eqref{eq: limit-constraint}, and an energy supersolution.
+
+\begin{lemma}[the gradient energy is the enstrophy]\label{lem: energy-enstrophy}
+On the limit $U$ the balance $q_U\equiv0$ gives
+\begin{equation}\label{eq: energy-enstrophy}
+  \abs{\nabla U}^2 = \abs{\omega_U}^2,
+  \qquad \abs{S_U}^2 = \tfrac12\abs{\omega_U}^2 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+By the gradient split~\eqref{eq: gradient-split},
+$\abs{\nabla U}^2 = q_U + \abs{\omega_U}^2 = \abs{\omega_U}^2$, and
+$q_U = \abs{S_U}^2 - \tfrac12\abs{\omega_U}^2 = 0$ is the second equality.
+\end{proof}
+
+\begin{lemma}[Cayley--Hamilton rigidity]\label{lem: cayley}
+On the balanced limit the velocity gradient $A = \nabla U$ satisfies the pointwise
+identity
+\begin{equation}\label{eq: cayley}
+  (\nabla U)^3 = \det(\nabla U)\,\mathbb{I}.
+\end{equation}
+Its eigenvalues are $\{c,\, c\zeta,\, c\zeta^2\}$ with $\zeta = e^{2\pi i/3}$ and
+$c^3 = \det(\nabla U)$, so the gradient is nilpotent where the pressureless flow has
+no inertial production and is conjugate to a fixed cube-root pattern elsewhere.
+\end{lemma}
+
+\begin{proof}
+The characteristic polynomial of the $3\times3$ matrix $A$ is
+$\lambda^3 - (\operatorname{tr}A)\lambda^2
+ + \tfrac12\bigl((\operatorname{tr}A)^2 - \operatorname{tr}A^2\bigr)\lambda - \det A$.
+Incompressibility gives $\operatorname{tr}A = 0$ and the balance
+$q_U = \operatorname{tr}A^2 = 0$, so the polynomial reduces to $\lambda^3 - \det A$
+and its roots are the three cube roots of $\det A$. The Cayley--Hamilton theorem
+gives~\eqref{eq: cayley}.
+\end{proof}
+
+The drift equation carries one more piece of structure, unconditional and not
+visible to the energy identity. It localises the whole Liouville question onto a
+single quantity, the oscillation of the limit in the infinite past.
+
+\begin{lemma}[componentwise monotonicity]\label{lem: monotone}
+For a bounded ancient pressureless limit $U$, each component has monotone spatial
+extremes: $t\mapsto\sup_{\R^3}U_i(\cdot,t)$ is non-increasing and
+$t\mapsto\inf_{\R^3}U_i(\cdot,t)$ is non-decreasing on $(-\infty,0)$, so the
+oscillation
+\begin{equation}\label{eq: osc}
+  \operatorname{osc}_i(t)
+  = \sup_{\R^3}U_i(\cdot,t) - \inf_{\R^3}U_i(\cdot,t)
+\end{equation}
+is non-increasing in time. Hence $U$ is constant if and only if the past
+oscillation vanishes, $\lim_{t\to-\infty}\operatorname{osc}_i(t) = 0$ for each $i$.
+\end{lemma}
+
+\begin{proof}
+Each component solves $\partial_t U_i + U\cdot\nabla U_i = \nu\Delta U_i$, a
+uniformly parabolic equation with the divergence-free drift $U$ and no zeroth-order
+term. For a bounded solution on $\R^3\times[t_1,t_2]$ the weak maximum principle
+gives $\sup_{\R^3}U_i(\cdot,t)\le\sup_{\R^3}U_i(\cdot,t_1)$ and
+$\inf_{\R^3}U_i(\cdot,t)\ge\inf_{\R^3}U_i(\cdot,t_1)$ for $t_1\le t\le t_2$, which is
+the monotonicity, and $\operatorname{osc}_i$ is non-increasing as the difference of a
+non-increasing and a non-decreasing function. If $\operatorname{osc}_i(t)\to0$ as
+$t\to-\infty$ then, being non-increasing and non-negative, $\operatorname{osc}_i$
+vanishes identically, so each $U_i(\cdot,t)$ is constant in space; the momentum
+equation gives $\partial_t U_i = 0$, and $U$ is constant. The converse is immediate.
+\end{proof}
+
+The Type-I decay $\abs{U(\cdot,t)}\le M\abs{t}^{-1/2}$ sends both extremes to zero
+as $t\to-\infty$, so it forces $\operatorname{osc}_i(-\infty)=0$ and recovers
+Lemma~\ref{lem: liouville}. In the scale-critical class the divergence-free drift
+Liouville theorem closes the same gap. The supercritical obstruction is the
+past oscillation $\operatorname{osc}_i(-\infty)$, a single number per component that
+the energy identity leaves undetermined.
+
+\begin{lemma}[energy supersolution]\label{lem: supersolution}
+The kinetic energy
+$\Phi = \tfrac12\abs{U}^2$ of the limit is a bounded ancient supersolution of the
+drift--heat operator with bounded divergence-free drift $U$,
+\begin{equation}\label{eq: supersolution}
+  \bigl(\partial_t + U\cdot\nabla - \nu\Delta\bigr)\Phi
+  = -\nu\abs{\nabla U}^2 = -\nu\abs{\omega_U}^2 \le 0 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+With $\nabla p_U\equiv0$ the momentum equation gives
+$(\partial_t + U\cdot\nabla)\tfrac12\abs{U}^2 = U\cdot\nu\Delta U$, and
+$\nu\Delta\tfrac12\abs{U}^2 = \nu\,U\cdot\Delta U + \nu\abs{\nabla U}^2$, whose
+difference is~\eqref{eq: supersolution}; the last equality is
+Lemma~\ref{lem: energy-enstrophy}.
+\end{proof}
+
+The operator $\partial_t + U\cdot\nabla - \nu\Delta$ is uniformly parabolic in
+divergence form, since $U\cdot\nabla\Phi = \operatorname{div}(U\Phi)$ for the
+divergence-free drift, and its coefficients are bounded since $U$ is bounded. The
+supersolution already constrains the limit unconditionally.
+
+\begin{lemma}[vanishing mean dissipation]\label{lem: caccioppoli}
+Write $Q_R = B_R\times(-R^2,0)$ for the parabolic cylinder of radius $R$ in the
+ancient domain. The bounded limit $U$ satisfies
+\begin{equation}\label{eq: caccioppoli}
+  \int_{Q_R}\abs{\nabla U}^2 \le C\,R^{4},
+  \qquad C = C\bigl(\nu, \norm{U}_{L^\infty}\bigr),
+\end{equation}
+so the mean dissipation $\abs{Q_R}^{-1}\int_{Q_R}\abs{\nabla U}^2 = O(R^{-1})$ tends
+to zero as $R\to\infty$.
+\end{lemma}
+
+\begin{proof}
+Let $\eta$ be a cutoff with $\eta\equiv1$ on $Q_R$, $\operatorname{supp}\eta\subset
+Q_{2R}$, $0\le\eta\le1$, $\abs{\nabla\eta}\le C/R$ and $\abs{\partial_t\eta}\le
+C/R^2$. Multiplying the energy identity~\eqref{eq: supersolution} by $\eta^2$,
+integrating over $\R^3\times(-\infty,0)$ and moving derivatives onto $\eta^2$ by
+parts, with $\Phi = \tfrac12\abs{U}^2$ and $\operatorname{div}U=0$,
+\[
+  \nu\int\abs{\nabla U}^2\eta^2
+  = \int\Phi\,\partial_t(\eta^2)
+  + \int\Phi\,U\cdot\nabla(\eta^2)
+  - \nu\int\nabla\Phi\cdot\nabla(\eta^2).
+\]
+Using $\Phi\le\tfrac12\norm{U}_\infty^2$ and $\abs{\nabla\Phi}\le
+\norm{U}_\infty\abs{\nabla U}$, the first two integrals are bounded on $Q_{2R}$ by
+$C\norm{U}_\infty^2 R^{3}$ and $C\norm{U}_\infty^3 R^{4}$, and the third by
+$\tfrac{\nu}{2}\int\abs{\nabla U}^2\eta^2 + C\nu\norm{U}_\infty^2 R^{3}$ through the
+Cauchy--Schwarz and Young inequalities. Absorbing the gradient term on the left
+gives~\eqref{eq: caccioppoli}.
+\end{proof}
+
+The vorticity of the limit carries the structure on which the critical theory turns,
+and it does so unconditionally.
+
+\begin{lemma}[vorticity differential inequality]\label{lem: vorticity-ineq}
+The bounded ancient limit is smooth with bounded $U$ and $\nabla U$, and its
+vorticity $\omega_U = \curl U$ obeys the viscous vorticity equation
+$\partial_t\omega_U + U\cdot\nabla\omega_U
+= \omega_U\cdot\nabla U + \nu\Delta\omega_U$, hence the differential inequality
+\begin{equation}\label{eq: vorticity-ineq}
+  \abs{\partial_t\omega_U - \nu\Delta\omega_U}
+  \le C\bigl(\abs{\omega_U} + \abs{\nabla\omega_U}\bigr),
+  \qquad C = \max\bigl(\norm{U}_{L^\infty}, \norm{\nabla U}_{L^\infty}\bigr),
+\end{equation}
+on $\R^3\times(-\infty,0)$.
+\end{lemma}
+
+\begin{proof}
+Each component solves $\partial_t U_i + U\cdot\nabla U_i = \nu\Delta U_i$ with
+bounded drift $U$, so the De Giorgi--Nash--Moser theory gives $U\in C^\alpha$ and the
+Schauder estimates bootstrap to bounded $U$ and $\nabla U$. Taking the curl of the
+momentum equation removes any pressure gradient and gives the stated vorticity
+equation, using $\curl(U\cdot\nabla U) = U\cdot\nabla\omega_U - \omega_U\cdot\nabla U$
+for the divergence-free field. The bounds on $U$ and $\nabla U$
+give~\eqref{eq: vorticity-ineq}.
+\end{proof}
+
+Inequality~\eqref{eq: vorticity-ineq} is the hypothesis of the backward-uniqueness
+theory of Escauriaza, Seregin and \v{S}ver\'ak~\cite{escauriaza-2003-bac-uni-par,
+escauriaza-2003-l3i-nav-equ}. Suppose the vorticity decays at spatial infinity at
+some time, $\omega_U(x,t)\to0$ as $\abs{x}\to\infty$ uniformly for $t\le t_0$. The
+Carleman backward-uniqueness estimate then forces $\omega_U\equiv0$ on an exterior
+$\{\abs{x}>R\}\times(-\infty,t_0)$, spatial unique continuation propagates the zero,
+and $\omega_U\equiv0$; a bounded divergence-free curl-free field is constant, so $U$
+is constant. Every ingredient of this argument holds unconditionally for the bounded
+ancient limit: the differential inequality, the boundedness, and the parabolic
+regularity. The one input it requires is the decay of $\omega_U$ at spatial infinity,
+and the pressureless structure does not supply it. A shear $U = (f(y,t),0,0)$ with
+$\partial_t f = \nu\,\partial_y^2 f$ is pressureless and divergence-free with
+vorticity $\omega_U = (0,0,-\partial_y f)$ independent of $x$ and $z$, carrying no
+decay, while the maximum principle of Lemma~\ref{lem: monotone} still makes it
+constant through the caloric Liouville property. The past oscillation
+$\operatorname{osc}_i(-\infty)$ and the spatial decay of the vorticity are the two
+faces of the supercritical wall.
+
+A non-constant such limit concentrates its gradient: by
+Lemma~\ref{lem: caccioppoli} the dissipation vanishes in mean over large cylinders.
+The obstruction to a Liouville theorem is one of scale. The scale-critical class
+$L^\infty_t L^3_x$ is the setting in which the divergence-free drift lies in
+$L^\infty_t\mathrm{BMO}^{-1}_x$ and the parabolic Harnack inequality of Seregin,
+Silvestre, \v{S}ver\'ak and Zlato\v{s} holds, which is what
+Lemma~\ref{lem: liouville-critical} uses. This threshold is sharp: a divergence-free
+drift marginally beyond $\mathrm{BMO}^{-1}$ already admits a non-constant bounded
+ancient solution~\cite{seregin-2012-div-dri}. The remaining case is the supercritical
+one, a limit that is bounded but carries no spatial decay, so its drift sits in
+$L^\infty_x$ alone, where the scale-invariant size $R\norm{U}_\infty$ grows with $R$
+and the Harnack constant degrades. The Liouville property for bounded ancient
+pressureless flows with drift in $L^\infty_x$ is the open three-dimensional case,
+settled in the two-dimensional and axisymmetric classes where the drift is
+effectively lower-dimensional~\cite{koch-2009-lio-the-nav}. The
+constraint~\eqref{eq: limit-constraint}, the balance~\eqref{eq: energy-enstrophy},
+and the Cayley--Hamilton rigidity~\eqref{eq: cayley} are the extra structure the
+general bounded drift does not carry, and they are the data of the equation
+that an energy-preserving averaging discards (Section~\ref{sec: barrier}).

@@ -1,0 +1,67 @@
+# Equation-level verification registry (Layer A).
+#
+# Every displayed identity (\label{eq: ...}) in papers/2026-cf-curvature-pressure
+# is classified by `kind`. The linter tools/eqn_lint.py fails the build if a
+# displayed equation is missing here, if a registry entry is stale (no such label
+# in the .tex), or if an `algebraic` entry has no passing symbolic check.
+#
+# kind:
+#   algebraic  -- a finite-dimensional pointwise/tensor identity. MUST bind a
+#                 passing `check` (native:<name> from sympy/equation_checks.py,
+#                 or `cf2`/`cf3` meaning the corresponding script's PARTS cover it).
+#   inequality -- a bound/estimate (not a pointwise identity); not auto-checked,
+#                 but a supporting identity may be checked via a [claims] entry.
+#   definition -- introduces notation or an object; nothing to verify.
+#   hypothesis -- a condition assumed in a theorem; nothing to verify.
+#   statement  -- a limsup/regularity assertion (the partial-regularity layer).
+#   cited      -- imported verbatim from a cited theorem.
+#
+# Counter-tested algebraic checks (sign/transcription guard) live in
+# sympy/equation_checks.py. The `div_form_rewrite` claim is the identity the
+# 2026-06-08 sign error (nu I - d vs nu I + d) slipped through; it is now bound.
+
+[equations]
+
+"eq: connection"          = { kind = "definition" }
+"eq: connection-2"        = { kind = "definition" }
+"eq: II"                  = { kind = "algebraic", check = "cf2" }
+"eq: curvature-formula"   = { kind = "definition" }
+"eq: local-zero"          = { kind = "algebraic", check = "cf2" }
+"eq: reduced"             = { kind = "algebraic", check = "cf2" }
+"eq: gauss"               = { kind = "algebraic", check = "cf2" }
+"eq: commutator"          = { kind = "algebraic", check = "cf2" }
+"eq: two-terms"           = { kind = "algebraic", check = "cf2" }
+
+"eq: pressure-poisson"    = { kind = "definition" }
+"eq: imbalance"           = { kind = "algebraic", check = "native:imbalance_norm" }
+
+"eq: gradient-split"      = { kind = "algebraic", check = "native:gradient_split" }
+"eq: ckn"                 = { kind = "cited" }
+"eq: delta-imbalance"     = { kind = "hypothesis" }
+"eq: curv-conc"           = { kind = "statement" }
+"eq: balance"             = { kind = "statement" }
+"eq: production"          = { kind = "algebraic", check = "native:production_law" }
+"eq: zero-mean"           = { kind = "algebraic", check = "native:zero_mean_budget" }
+
+"eq: rescaling"           = { kind = "definition" }
+"eq: limit-pressureless"  = { kind = "statement" }
+"eq: limit-constraint"    = { kind = "algebraic", check = "native:production_law", note = "q=0 specialisation of the production law (grad^2 p = 0)" }
+"eq: constraint-hessian"  = { kind = "algebraic", check = "native:constraint_hessian" }
+"eq: drift-system"        = { kind = "definition" }
+"eq: critical-bound"      = { kind = "hypothesis" }
+"eq: type1-concentration" = { kind = "statement" }
+"eq: scale-critical"      = { kind = "hypothesis" }
+
+"eq: cayley"              = { kind = "algebraic", check = "native:cayley" }
+"eq: osc"                 = { kind = "definition" }
+"eq: energy-enstrophy"    = { kind = "algebraic", check = "native:gradient_split", note = "q=0 specialisation of |grad u|^2 = q + |omega|^2" }
+"eq: supersolution"       = { kind = "algebraic", check = "native:supersolution" }
+"eq: caccioppoli"         = { kind = "inequality" }
+"eq: vorticity-ineq"      = { kind = "inequality", note = "underlying vorticity equation checked via claim vorticity_equation" }
+
+# Load-bearing identities written inline in proofs (not displayed), registered by
+# name so coverage cannot drift around them.
+[claims]
+
+div_form_rewrite = { kind = "algebraic", check = "native:div_form_rewrite", note = "div(d grad U_i) = U.grad U_i; skew part is -d (issue-1 sign)" }
+vorticity_equation = { kind = "algebraic", check = "native:vorticity_equation", note = "supports eq: vorticity-ineq" }

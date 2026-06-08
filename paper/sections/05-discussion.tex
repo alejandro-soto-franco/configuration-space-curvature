@@ -1,0 +1,130 @@
+% sections/05-discussion.tex
+\section{Discussion}
+\label{sec: discussion}
+
+\subsection{Comparison with the coherence criterion}
+
+The Constantin--Fefferman criterion~\cite{constantin-1993-dir-vor-pro} controls
+the stretching scalar $\alpha = \xi^{\top} S\,\xi$ under a coherence hypothesis on
+the vorticity direction $\xi$, and so secures regularity throughout the regime of
+coherent vorticity. The curvature governs the complementary regime, and it does
+so through data independent of the coherence of $\xi$. To see the independence,
+take a columnar field $u = (\,-\partial_y\psi,\ \partial_x\psi,\ 0\,)$ with stream
+function $\psi = \psi(x,y)$ on $\T^3$, independent of $z$. Its vorticity is
+$\omega = (0,0,\Delta\psi)$, so the vorticity direction $\xi = \pm e_3$ is
+constant and the coherence hypothesis holds with $\nabla\xi \equiv 0$. The
+imbalance $q = \abs{S}^2 - \tfrac12\abs{\omega}^2$ of such a field is generically
+nonzero, so its curvature does not vanish. Such a two-dimensional field is globally
+regular, so the example separates the two data and does not exhibit a singular
+regime. Coherence of the vorticity direction and the strain--enstrophy imbalance
+are independent data, and the curvature reads the second where the criterion of
+Constantin and Fefferman reads the first.
+
+\subsection{The balanced regime}
+
+The regime of~\eqref{eq: balance} is the one in which the strain energy and the
+enstrophy concentrate together, $\abs{S}^2$ and $\tfrac12\abs{\omega}^2$ sharing a
+common scaled limit, equivalently the imbalance $q$ and the pressure both
+depleting in scaled average. The velocity-gradient dynamics has long associated
+the approach to intense events with a depletion of the nonlinearity and a
+balancing of strain against rotation: the local models of the velocity-gradient
+tensor of Vieillefosse and Cantwell, and the analysis of vortex stretching of
+Ohkitani and Kishiba, all turn on the nonlocal pressure Hessian that
+Theorem~\ref{thm: main} identifies with the curvature~\cite{vieillefosse-1982-loc-int,
+cantwell-1992-exa-sol, ohkitani-1995-non-nat, constantin-1994-geo-sta-tur}.
+Theorem~\ref{thm: dichotomy} places that picture inside the configuration-space
+geometry: by Theorem~\ref{thm: imbalance} the curvature is the imbalance, so the
+balanced regime is the regime in which the curvature of $\SDiff(\T^3)$ stays finite
+at the singular point.
+
+The result is structural. The coercive criterion of
+Proposition~\ref{prop: coercive} secures regularity while the flow stays away from
+balance, and the production law~\eqref{eq: production} shows the balanced regime is
+sustained only by a cancellation of the inertial source against the curvature work.
+Theorems~\ref{thm: no-balanced} and~\ref{thm: no-balanced-critical} turn that
+cancellation into rigidity: in the scale-critical class the balanced regime is a
+bounded ancient pressureless limit whose divergence-free drift is critical, excluded
+by a Liouville theorem, by an elementary maximum principle at a Type-I point and by
+the divergence-free drift theorem in the larger class. The geometry thus locates the
+difficulty precisely. In the scale-critical class the only undetected behaviour,
+strain--enstrophy balance, is ruled out, so every scale-critical singular point is
+curvature-concentrating. Beyond that class the balanced regime is the supercritical
+Liouville problem for bounded ancient pressureless flows, open in three dimensions
+and settled in the symmetry classes where the swirl-free flow is already regular.
+
+\subsection{Structure beyond the energy identity}
+\label{sec: barrier}
+
+The exclusion of the balanced regime in the scale-critical class
+(Theorem~\ref{thm: no-balanced-critical}) rests on the Liouville theorem for
+divergence-free drifts, which belongs to the critical regularity theory reachable
+from the energy identity and the scaling. The balanced regime in full generality is
+supercritical, and there a structural input is required. The averaged equation of
+Tao makes this precise: there is a bilinear operator $\tilde B$ that obeys the
+energy cancellation $\langle\tilde B(u,u),u\rangle = 0$, shares the scaling and the
+upper-bound estimates of the Euler operator $B(u,u) = \Leray[(u\cdot\nabla)u]$, and
+yet admits a smooth solution that blows up in finite
+time~\cite{tao-2016-fin-tim-blo}. Any argument resting on the energy identity, the
+scaling, and upper bounds for the nonlinearity applies equally to $\tilde B$, so it
+cannot reach global regularity for $B$. A proof must read structure of $B$ that the
+averaging removes.
+
+The curvature supplies such structure. The velocity gradient $A = \nabla u$ evolves
+by $(\partial_t + u\cdot\nabla)A = -A^2 - \nabla^2 p + \nu\Delta A$, in which the
+self-stretching $-A^2$ and the pressure Hessian $\nabla^2 p = -\Riesz q$ are the
+bilinear and nonlocal data of the Euler operator. The production
+law~\eqref{eq: production} is their trace through the imbalance, and the imbalance
+$q = \abs{S}^2 - \tfrac12\abs{\omega}^2$ is the size of the curvature
+(Theorem~\ref{thm: imbalance}). The averaging that produces $\tilde B$ replaces the
+pressure projection by a multiplier of order zero and rotates the pointwise product
+structure, so it carries neither the Riesz identity $\nabla^2 p = -\Riesz q$ nor the
+self-stretching determinant $\det(\nabla u)$. The curvature, and the balanced regime
+it governs, are data of the unaveraged equation lying outside the reach of the energy
+identity. The scale-critical exclusion occupies the side of the dichotomy the
+critical theory already reaches; the curvature locates the remaining, supercritical
+side and reads it through the pressure.
+
+That supercritical side reduces to a single question
+(Section~\ref{sec: limit-structure}): whether a bounded ancient pressureless flow,
+$\partial_t U + U\cdot\nabla U = \nu\Delta U$ with $q_U\equiv0$ and
+$\nabla p_U\equiv0$, is constant. The reduction
+$q_U\equiv0 \Leftrightarrow \nabla p_U\equiv0$ is the Riesz identity again, so the
+reduced problem inherits the pressure structure that the averaging does not
+preserve. The barrier leaves this gateway open to a structural argument, and the
+constraint~\eqref{eq: limit-constraint}, the balance~\eqref{eq: energy-enstrophy},
+the Cayley--Hamilton rigidity~\eqref{eq: cayley}, and the energy
+supersolution~\eqref{eq: supersolution} are the structural data it carries. The
+maximum principle localises the question further: by Lemma~\ref{lem: monotone} the
+limit is constant precisely when its oscillation in the infinite past vanishes, so
+the supercritical obstruction is one number per component, beyond the reach of the
+energy identity.
+
+\section{Conclusion}
+\label{sec: conclusion}
+
+The curvature of the volume-preserving diffeomorphism group is the pressure
+Hessian (Theorem~\ref{thm: main}), and the Gauss equation places its origin in
+the second fundamental form of incompressibility. Its size is the
+strain--enstrophy imbalance (Theorem~\ref{thm: imbalance}), so it vanishes on the
+pressureless flows and reproduces Arnold's same-shell degeneracy. Read against the
+partial-regularity theory, the curvature controls regularity away from balance
+(Proposition~\ref{prop: coercive}), and a singular point with bounded curvature is
+approached through balance, equivalently through the depletion of the pressure
+(Theorem~\ref{thm: dichotomy}).
+
+The geometry thus identifies the balanced, pressureless regime as the route to
+singularity it does not see, and the production law~\eqref{eq: production} shows
+that route is sustained only by a fine cancellation. In the scale-critical class
+Theorem~\ref{thm: no-balanced-critical} renders the balanced regime as a bounded
+ancient pressureless flow whose divergence-free drift is critical, which the
+Liouville theorem for such drifts excludes, so every scale-critical singular point,
+the Type-I points among them, is curvature-concentrating. Beyond the critical class
+the balanced regime is supercritical. There the energy identity is blind, and the
+averaged equation of Tao~\cite{tao-2016-fin-tim-blo} shows that regularity is closed
+to any argument that the energy identity and the scaling can supply. The curvature
+is the structure of the nonlinearity that lies past this barrier: the
+production law, the constraint~\eqref{eq: limit-constraint}, the Cayley--Hamilton
+rigidity~\eqref{eq: cayley}, and the energy supersolution~\eqref{eq: supersolution}
+are data an energy-preserving averaging discards. They reduce the supercritical
+balanced regime to one question, whether a bounded ancient pressureless flow is
+constant, and they are the structural input with which to answer it.

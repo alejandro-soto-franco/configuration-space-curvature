@@ -1,0 +1,23 @@
+# LaTeX build artefacts
+paper/*.aux
+paper/*.bbl
+paper/*.bcf
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.log
+paper/*.out
+paper/*.run.xml
+paper/*.synctex.gz
+paper/*.toc
+paper/*.xdv
+paper/sections/*.aux
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# Distribution
+dist/

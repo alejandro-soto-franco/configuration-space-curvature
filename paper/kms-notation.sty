@@ -1,0 +1,48 @@
+%% kms-notation.sty -- notation set for this paper. Load after kms-style.
+%% Operators are \mathrm-set and used inline as \mathrm{Per}, \mathrm{Vol}, ...
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{kms-notation}[2026/06/01 v1.0 notation set]
+
+\RequirePackage{amsmath}
+
+% ---- core named symbols ------------------------------------------------
+% Second fundamental form.
+\NewDocumentCommand{\sff}{}{\mathrm{I\!I}}
+% Measure restriction (the "\mres" hairpin), built from rules so it is
+% engine-agnostic and renders identically under pdfLaTeX and XeLaTeX.
+\newcommand{\mres}{\mathbin{\vrule height 1.6ex depth 0pt width
+  0.13ex\vrule height 0.13ex depth 0pt width 1.3ex}}
+% Essential supremum / infimum.
+\newcommand{\esssup}{\mathrm{ess\,sup}}
+\newcommand{\essinf}{\mathrm{ess\,inf}}
+% Upright differential (matches the asf standard). `\providecommand` so a
+% document may override it.
+\providecommand{\dd}{\mathrm{d}}
+
+% ---- GMT / geometric-analysis operators --------------------------------
+% \div is already the division glyph in LaTeX, so divergence is \diverg.
+\DeclareMathOperator{\Per}{Per}        % perimeter
+\DeclareMathOperator{\Vol}{Vol}        % volume
+\DeclareMathOperator{\Sing}{Sing}      % singular set
+\DeclareMathOperator{\Spt}{Spt}        % support (capitalised form)
+\DeclareMathOperator{\spt}{spt}        % support (lower-case form)
+\DeclareMathOperator{\Ric}{Ric}        % Ricci curvature
+\DeclareMathOperator{\Ker}{Ker}        % kernel (capitalised form)
+\DeclareMathOperator{\Int}{Int}        % interior
+\DeclareMathOperator{\Clos}{Clos}      % closure
+\DeclareMathOperator{\Cut}{Cut}        % cut locus
+\DeclareMathOperator{\Rm}{Rm}          % Riemann curvature tensor
+\DeclareMathOperator{\dist}{dist}      % distance
+\DeclareMathOperator{\diverg}{div}     % divergence
+\DeclareMathOperator{\reg}{reg}        % regular set
+\DeclareMathOperator{\graph}{graph}    % graph
+\DeclareMathOperator{\inj}{inj}        % injectivity radius
+\DeclareMathOperator{\Met}{Met}        % space of metrics
+
+% ---- measure conveniences (opt-in; do not clobber a document's own) ----
+% Hausdorff and Lebesgue measures written inline as \mathcal{H}, \mathcal{L};
+% provided for brevity and can be safely overridden.
+\providecommand{\Haus}{\mathcal{H}}    % Hausdorff measure
+\providecommand{\Leb}{\mathcal{L}}     % Lebesgue measure
+
+\endinput

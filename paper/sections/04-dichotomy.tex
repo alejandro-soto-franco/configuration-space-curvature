@@ -1,0 +1,158 @@
+% sections/04-dichotomy.tex
+\section{Curvature concentration and the singular set}
+\label{sec: dichotomy}
+
+We read Theorem~\ref{thm: imbalance} against the partial-regularity theory. Write
+$Q_r = Q_r(x_0,t_0) = B_r(x_0)\times(t_0-r^2,t_0)$ for the parabolic cylinder.
+The starting point is the pointwise identity and bound
+\begin{equation}\label{eq: gradient-split}
+  \abs{\nabla u}^2 = q + \abs{\omega}^2,
+  \qquad \abs{q} \le \abs{\nabla u}^2,
+  \qquad q = \abs{S}^2 - \tfrac12\abs{\omega}^2,
+\end{equation}
+the identity since $\abs{\nabla u}^2 = \abs{S}^2 + \tfrac12\abs{\omega}^2$, and the
+bound since $\abs{q} \le \abs{S}^2 + \tfrac12\abs{\omega}^2$. By
+Theorem~\ref{thm: imbalance} the imbalance $q$ is the local part of the curvature,
+$q = -\operatorname{tr}\nabla^2 p$. The bound in~\eqref{eq: gradient-split} is the
+coercivity that lets the curvature control the local energy away from the balanced
+set $\{q = 0\}$.
+
+We use the $\eps$-regularity criterion of Caffarelli, Kohn and Nirenberg in the
+following form~\cite{caffarelli-1982-par-reg-sui}: there is an absolute constant
+$\eps_0 > 0$ such that if
+\begin{equation}\label{eq: ckn}
+  \limsup_{r\to0}\ \frac{1}{r}\int_{Q_r}\abs{\nabla u}^2\,\dd x\,\dd t < \eps_0,
+\end{equation}
+then $(x_0,t_0)$ is a regular point. Equivalently, a singular point has
+$\limsup_{r\to0} r^{-1}\int_{Q_r}\abs{\nabla u}^2 \ge \eps_0$. A suitable weak
+solution is smooth on the complement of its singular set, which carries zero
+parabolic one-dimensional measure, so the pointwise identities of
+Sections~\ref{sec: connection-curvature}--\ref{sec: imbalance} hold on the regular
+set where the scaled quantities below are evaluated.
+
+\begin{proposition}[coercive criterion]\label{prop: coercive}
+Let $u$ be a suitable weak solution of
+the Navier--Stokes equations on $\T^3$, let $(x_0,t_0)$ be a point, and let
+$\delta \in (0,1]$. Suppose the flow is $\delta$-imbalanced near $(x_0,t_0)$,
+\begin{equation}\label{eq: delta-imbalance}
+  \int_{Q_r}\abs{q} \ \ge\ \delta\int_{Q_r}\abs{\nabla u}^2
+  \qquad\text{for all small } r,
+\end{equation}
+and the curvature does not concentrate,
+$\limsup_{r\to0} r^{-1}\int_{Q_r}\abs{q} < \delta\,\eps_0$, with $\eps_0$ the
+Caffarelli--Kohn--Nirenberg constant. Then $(x_0,t_0)$ is a regular
+point.
+\end{proposition}
+
+\begin{proof}
+By~\eqref{eq: delta-imbalance}, $\int_{Q_r}\abs{\nabla u}^2 \le
+\delta^{-1}\int_{Q_r}\abs{q}$, so
+\[
+  \limsup_{r\to0}\frac{1}{r}\int_{Q_r}\abs{\nabla u}^2
+  \ \le\ \delta^{-1}\limsup_{r\to0}\frac{1}{r}\int_{Q_r}\abs{q}
+  \ <\ \eps_0,
+\]
+and the $\eps$-regularity criterion of Caffarelli, Kohn and
+Nirenberg~\cite{caffarelli-1982-par-reg-sui} gives regularity.
+\end{proof}
+
+The criterion is the coercive half of the picture: through its local trace $q$,
+the curvature controls the full gradient energy with constant $\delta^{-1}$, so
+long as the flow stays $\delta$-imbalanced. The hypothesis~\eqref{eq: delta-imbalance}
+is sharp, since its failure is the approach to balance. The other half is what a
+singularity forces.
+
+\begin{theorem}[balance at a singular point]\label{thm: dichotomy}
+Let $u$ be a suitable weak solution of
+the Navier--Stokes equations on $\T^3$ and let $(x_0,t_0)$ be a singular point. Then
+either the curvature concentrates,
+\begin{equation}\label{eq: curv-conc}
+  \limsup_{r\to0}\ \frac{1}{r}\int_{Q_r}\abs{q}\,\dd x\,\dd t > 0,
+\end{equation}
+or the scaled strain energy and half-enstrophy share a common positive limit,
+\begin{equation}\label{eq: balance}
+  \limsup_{r\to0}\ \frac{1}{r}\int_{Q_r}\abs{S}^2
+  = \limsup_{r\to0}\ \frac{1}{r}\int_{Q_r}\tfrac12\abs{\omega}^2 \ \ge\ \tfrac12\eps_0.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By the $\eps$-regularity criterion~\cite{caffarelli-1982-par-reg-sui} a singular
+point has $\limsup_{r\to0} r^{-1}\int_{Q_r}\abs{\nabla u}^2 \ge \eps_0$. Suppose
+\eqref{eq: curv-conc} fails, so $r^{-1}\int_{Q_r}\abs{q} \to 0$.
+By~\eqref{eq: gradient-split},
+\[
+  \frac{1}{r}\int_{Q_r}\abs{\omega}^2
+  = \frac{1}{r}\int_{Q_r}\abs{\nabla u}^2 - \frac{1}{r}\int_{Q_r} q,
+\]
+and $r^{-1}\bigl|\int_{Q_r} q\bigr| \le r^{-1}\int_{Q_r}\abs{q} \to 0$, so
+$\limsup_{r\to0} r^{-1}\int_{Q_r}\abs{\omega}^2 \ge \eps_0$. Since
+$\abs{S}^2 = q + \tfrac12\abs{\omega}^2$, the scaled strain energy differs from
+the scaled half-enstrophy by $r^{-1}\int_{Q_r} q \to 0$, which
+gives~\eqref{eq: balance}.
+\end{proof}
+
+Together, Proposition~\ref{prop: coercive} and Theorem~\ref{thm: dichotomy}
+characterise the role of the curvature at the singular set: away from balance the
+curvature controls regularity, and a singular point with bounded curvature is
+approached through strain--enstrophy balance. By Theorem~\ref{thm: imbalance} the
+balanced set is precisely $\{q \equiv 0\} = \{\Delta p \equiv 0\}$, so the curvature
+concentrates at the singularity unless the flow becomes locally pressureless,
+$\Delta p \to 0$ in scaled average.
+
+The balanced regime is not free: the imbalance carries a transport law whose
+inertial and curvature terms must cancel locally to sustain it.
+
+\begin{proposition}[imbalance production]\label{prop: production}
+For a smooth solution of the Navier--Stokes
+equations on $\T^3$, the imbalance $q = \abs{S}^2 - \tfrac12\abs{\omega}^2$ is
+transported by
+\begin{equation}\label{eq: production}
+  (\partial_t + u\cdot\nabla)\,q
+   = -6\det(\nabla u) \;-\; 2\,S\!:\!\nabla^2 p
+     \;+\; 2\nu\operatorname{tr}\!\bigl(\nabla u\,\Delta\nabla u\bigr),
+\end{equation}
+writing $\operatorname{tr}(\nabla u\,\Delta\nabla u) = \partial_i u_j\,\Delta\partial_j u_i$
+for the matrix trace, and each of the three terms carries zero net imbalance over
+the torus,
+\begin{equation}\label{eq: zero-mean}
+  \int_{\T^3}\det(\nabla u)\,\dd x = 0,
+  \quad
+  \int_{\T^3} S\!:\!\nabla^2 p \,\dd x = 0,
+  \quad
+  \int_{\T^3} \operatorname{tr}\!\bigl(\nabla u\,\Delta\nabla u\bigr)\,\dd x = 0.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The velocity gradient $A = \nabla u$ evolves by
+$(\partial_t + u\cdot\nabla)A = -A^2 - \nabla^2 p + \nu\Delta A$, obtained by
+differentiating the momentum equation. Since $q = \operatorname{tr}(A^2)$,
+\[
+  (\partial_t + u\cdot\nabla)\,q = 2\operatorname{tr}\!\bigl(A\,(\partial_t + u\cdot\nabla)A\bigr)
+  = -2\operatorname{tr}(A^3) - 2\operatorname{tr}(A\,\nabla^2 p) + 2\nu\operatorname{tr}(A\,\Delta A).
+\]
+For the trace-free gradient $\operatorname{tr}(A^3) = 3\det A$, and only the
+symmetric part of $A$ pairs with the Hessian,
+$\operatorname{tr}(A\,\nabla^2 p) = S\!:\!\nabla^2 p$; this
+gives~\eqref{eq: production}. The determinant of a gradient is a null Lagrangian,
+so its integral over the torus vanishes;
+$\int_{\T^3} S\!:\!\nabla^2 p = \int_{\T^3} p\,\partial_i\partial_j S_{ij}
+= \tfrac12\int_{\T^3} p\,\Delta(\operatorname{div}u) = 0$; and, in Fourier
+variables, $\int_{\T^3}\operatorname{tr}(\nabla u\,\Delta\nabla u)
+= -\sum_k \abs{k}^2\,\abs{k\cdot\hat u(k)}^2 = 0$ since $k\cdot\hat u(k) = 0$ for the
+divergence-free field. These are the three identities of~\eqref{eq: zero-mean}.
+\end{proof}
+
+The production law is the dynamic form of the dichotomy. The total imbalance is
+conserved: the strain and half-enstrophy carry equal mean,
+$\int_{\T^3}\abs{S}^2 = \tfrac12\int_{\T^3}\abs{\omega}^2$, so $\int_{\T^3} q = 0$
+at every time, and by~\eqref{eq: zero-mean} each of the inertial term
+$-6\det(\nabla u)$, the curvature work $-2\,S\!:\!\nabla^2 p$, and the viscous term
+redistributes the imbalance with zero net budget. The imbalance is produced
+locally and cancelled locally. A singular point approached through balance, where
+$q$ vanishes in scaled average, therefore requires the inertial production and the
+curvature work to cancel pointwise up to the singular time against this zero-sum
+budget. The next section shows that this
+balance is rigid: under a Type-I bound it forces a pressureless blow-up limit, and
+the production law then governs that limit.
