@@ -78,18 +78,18 @@ divergence-free families, so agreement is not an artefact of a single symmetry.
 
 ## Citation
 
-This repository is archived on Zenodo at
-[`10.5281/zenodo.20600978`](https://doi.org/10.5281/zenodo.20600978) (the concept DOI
-always resolves to the latest version). A preprint reference will be added once the
-paper is posted.
+The paper is a preprint, archived on Zenodo together with the verification code at
+[`10.5281/zenodo.20600978`](https://doi.org/10.5281/zenodo.20600978). The concept DOI
+always resolves to the latest version.
 
 ```bibtex
-@software{sotofranco2026curvature,
-  author = {Soto Franco, Alejandro Jos\'e},
-  title  = {Configuration-Space Curvature and the Navier--Stokes Singular Set},
-  year   = {2026},
-  doi    = {10.5281/zenodo.20600978},
-  url    = {https://doi.org/10.5281/zenodo.20600978},
+@misc{sotofranco2026curvature,
+  author       = {Soto Franco, Alejandro Jos\'e},
+  title        = {Configuration-Space Curvature and the Navier--Stokes Singular Set},
+  year         = {2026},
+  howpublished = {Preprint, Zenodo},
+  doi          = {10.5281/zenodo.20600978},
+  url          = {https://doi.org/10.5281/zenodo.20600978},
 }
 ```
 
