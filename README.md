@@ -17,18 +17,18 @@ controls the first possibility coercively and constrains the second, through a
 geometric identity:
 
 - The curvature of the `L²` metric on the group `SDiff(T³)` of volume-preserving
-  diffeomorphisms is the **pressure Hessian** — the Gauss curvature of `SDiff(T³)`
+  diffeomorphisms is the **pressure Hessian**, the Gauss curvature of `SDiff(T³)`
   inside the flat group `Diff(T³)`, whose second fundamental form is the pressure
   gradient.
-- Its `L²` size is the **strain–enstrophy imbalance** `q = |S|² − ½|ω|²`, so the
-  configuration-space curvature is the pressure Hessian of the velocity-gradient
+- Its `L²` size is the **strain–enstrophy imbalance** `q = |S|² − ½|ω|²`. The
+  configuration-space curvature is therefore the pressure Hessian of the velocity-gradient
   dynamics.
-- The imbalance carries a transport law with no inertial and no curvature source.
-  In the scale-critical `L³` class — the local form of the
-  Escauriaza–Seregin–Šverák condition — the balanced possibility forces a bounded
-  ancient pressureless flow that a Liouville theorem for divergence-free drifts
-  excludes, so every such singular point, the Type-I points among them, is
-  curvature-concentrating.
+- The imbalance obeys a transport law with no inertial and no curvature source.
+  In the scale-critical `L³` class (the local form of the
+  Escauriaza–Seregin–Šverák condition) the balanced possibility forces a bounded
+  ancient pressureless flow. A Liouville theorem for divergence-free drifts
+  excludes that flow. Every such singular point, the Type-I points among them, is
+  therefore curvature-concentrating.
 - Beyond the critical class the balanced regime is supercritical. There the
   curvature is the structure of the nonlinearity that the energy identity does not
   see, the structure an energy-preserving averaged equation discards, which locates
@@ -57,24 +57,24 @@ A recent TeX Live with `latexmk` and `biber` is required.
 The verification has three layers, all driven by `uv` (no manual environment setup):
 
 ```bash
-make verify       # runs the suites below and the coverage gate
+make verify       # runs the suites below and the coverage check
 ```
 
 - `verify/cf2_curvature_pressure_channel_verify.py` checks the curvature identities:
   the flat ambient part vanishes, the curvature operator is the Leray-projected
   pressure Hessian, the Gauss equation, and `‖∇²p‖₂ = ‖q‖₂`.
 - `verify/cf3_imbalance_production_verify.py` checks the imbalance-production law,
-  its zero-mean budget, the energy supersolution, and the constraint reformulation.
-- `verify/eqn_lint.py` is an **equation-coverage gate**: every displayed identity in
+  its zero-mean balance, the energy supersolution, and the constraint reformulation.
+- `verify/eqn_lint.py` is an **equation-coverage check**: every displayed identity in
   the paper (`\label{eq: …}`) is classified in `verify/equation_registry.toml`, and
   every algebraic one is bound to a symbolic check in `verify/equation_checks.py`
   that passes together with a **sign-flip counter-test** (the perturbed identity must
-  be rejected, so a vacuously-passing check is caught). The gate fails on any
+  be rejected, which catches a vacuously-passing check). The check fails on any
   unregistered or stale equation, or any algebraic identity without a passing check.
 
-Run the coverage gate on its own with `make eqn-lint`, or the symbolic suites with
+Run the coverage check on its own with `make eqn-lint`, or the symbolic suites with
 `make sympy`. The checks use a Fourier pseudo-spectral discretisation on several
-divergence-free families, so agreement is not an artefact of a single symmetry.
+divergence-free families. Agreement is therefore not an artefact of a single symmetry.
 
 ## Citation
 
